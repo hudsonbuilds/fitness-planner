@@ -16,29 +16,1581 @@
 
       box-sizing: border-box;
 
+      margin: 0;
+
+      padding: 0;
+
+    }
+
+    :root {
+
+      --bg: #0b0d10;
+
+      --card: #15181d;
+
+      --card2: #1b1f26;
+
+      --text: #f5f5f5;
+
+      --muted: #9ba3ad;
+
+      --accent: #65e572;
+
+      --accent-dark: #35b945;
+
+      --border: #292e36;
+
+      --danger: #ff5f5f;
+
     }
 
     body {
 
-      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
 
-      font-family: Arial, sans-serif;
+      background: var(--bg);
 
-      background: #111;
+      color: var(--text);
+
+      min-height: 100vh;
+
+    }
+
+    button,
+
+    input,
+
+    select {
+
+      font: inherit;
+
+    }
+
+    button {
+
+      cursor: pointer;
+
+    }
+
+    .header {
+
+      position: sticky;
+
+      top: 0;
+
+      z-index: 20;
+
+      background: rgba(11, 13, 16, 0.95);
+
+      border-bottom: 1px solid var(--border);
+
+      backdrop-filter: blur(10px);
+
+    }
+
+    .header-inner {
+
+      max-width: 1100px;
+
+      margin: auto;
+
+      padding: 18px 20px;
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      gap: 20px;
+
+    }
+
+    .logo {
+
+      font-size: 25px;
+
+      font-weight: 900;
+
+      letter-spacing: -1px;
+
+    }
+
+    .logo span {
+
+      color: var(--accent);
+
+    }
+
+    .nav {
+
+      display: flex;
+
+      gap: 8px;
+
+      flex-wrap: wrap;
+
+    }
+
+    .nav button {
+
+      background: transparent;
+
+      border: 1px solid transparent;
+
+      color: var(--muted);
+
+      padding: 9px 13px;
+
+      border-radius: 9px;
+
+    }
+
+    .nav button:hover,
+
+    .nav button.active {
+
+      background: var(--card2);
+
+      border-color: var(--border);
 
       color: white;
 
     }
 
-    header {
+    .container {
 
-      background: #1c1c1c;
+      width: min(1100px, calc(100% - 30px));
+
+      margin: auto;
+
+    }
+
+    .hero {
+
+      padding: 50px 0 30px;
+
+    }
+
+    .hero h1 {
+
+      font-size: clamp(34px, 6vw, 62px);
+
+      line-height: 1;
+
+      max-width: 800px;
+
+      letter-spacing: -2px;
+
+    }
+
+    .hero h1 span {
+
+      color: var(--accent);
+
+    }
+
+    .hero p {
+
+      margin-top: 15px;
+
+      color: var(--muted);
+
+      font-size: 17px;
+
+      max-width: 650px;
+
+      line-height: 1.6;
+
+    }
+
+    .section {
+
+      display: none;
+
+      padding: 15px 0 60px;
+
+    }
+
+    .section.active {
+
+      display: block;
+
+    }
+
+    .section-title {
+
+      font-size: 28px;
+
+      margin-bottom: 18px;
+
+    }
+
+    .stats {
+
+      display: grid;
+
+      grid-template-columns: repeat(4, 1fr);
+
+      gap: 14px;
+
+      margin: 25px 0;
+
+    }
+
+    .stat {
+
+      background: var(--card);
+
+      border: 1px solid var(--border);
+
+      border-radius: 14px;
 
       padding: 20px;
 
+    }
+
+    .stat-value {
+
+      font-size: 29px;
+
+      font-weight: 800;
+
+      margin-top: 7px;
+
+    }
+
+    .stat-label {
+
+      color: var(--muted);
+
+      font-size: 13px;
+
+      text-transform: uppercase;
+
+      letter-spacing: .6px;
+
+    }
+
+    .card {
+
+      background: var(--card);
+
+      border: 1px solid var(--border);
+
+      border-radius: 15px;
+
+      padding: 20px;
+
+      margin-bottom: 16px;
+
+    }
+
+    .card h3 {
+
+      margin-bottom: 7px;
+
+    }
+
+    .muted {
+
+      color: var(--muted);
+
+    }
+
+    .button {
+
+      border: none;
+
+      border-radius: 10px;
+
+      padding: 12px 17px;
+
+      font-weight: 700;
+
+      background: var(--accent);
+
+      color: #061006;
+
+      transition: .15s;
+
+    }
+
+    .button:hover {
+
+      transform: translateY(-1px);
+
+      background: #7cf286;
+
+    }
+
+    .button.secondary {
+
+      background: var(--card2);
+
+      color: white;
+
+      border: 1px solid var(--border);
+
+    }
+
+    .button.danger {
+
+      background: transparent;
+
+      color: var(--danger);
+
+      border: 1px solid var(--danger);
+
+    }
+
+    .workout-days {
+
+      display: grid;
+
+      grid-template-columns: repeat(5, 1fr);
+
+      gap: 10px;
+
+      margin-bottom: 20px;
+
+    }
+
+    .day-button {
+
+      background: var(--card);
+
+      color: var(--muted);
+
+      border: 1px solid var(--border);
+
+      border-radius: 12px;
+
+      padding: 15px 8px;
+
       text-align: center;
 
-      border-bottom: 1px solid #333;
+    }
+
+    .day-button:hover,
+
+    .day-button.active {
+
+      background: var(--card2);
+
+      color: white;
+
+      border-color: var(--accent);
+
+    }
+
+    .day-button strong {
+
+      display: block;
+
+      color: inherit;
+
+      margin-bottom: 4px;
+
+    }
+
+    .exercise {
+
+      background: var(--card2);
+
+      border: 1px solid var(--border);
+
+      border-radius: 13px;
+
+      padding: 16px;
+
+      margin-top: 12px;
+
+    }
+
+    .exercise-top {
+
+      display: flex;
+
+      justify-content: space-between;
+
+      gap: 15px;
+
+      align-items: flex-start;
+
+    }
+
+    .exercise-name {
+
+      font-size: 18px;
+
+      font-weight: 800;
+
+    }
+
+    .exercise-info {
+
+      color: var(--muted);
+
+      font-size: 14px;
+
+      margin-top: 5px;
+
+    }
+
+    .sets {
+
+      margin-top: 13px;
+
+      display: grid;
+
+      grid-template-columns: repeat(4, 1fr);
+
+      gap: 8px;
+
+    }
+
+    .set-box {
+
+      background: #111318;
+
+      border: 1px solid var(--border);
+
+      border-radius: 9px;
+
+      padding: 8px;
+
+    }
+
+    .set-box label {
+
+      display: block;
+
+      font-size: 11px;
+
+      color: var(--muted);
+
+      margin-bottom: 5px;
+
+    }
+
+    .set-box input {
+
+      width: 100%;
+
+      border: 1px solid var(--border);
+
+      background: #090b0e;
+
+      color: white;
+
+      border-radius: 7px;
+
+      padding: 8px;
+
+      outline: none;
+
+    }
+
+    .set-box input:focus {
+
+      border-color: var(--accent);
+
+    }
+
+    .check-row {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 8px;
+
+      margin-top: 12px;
+
+      color: var(--muted);
+
+      font-size: 14px;
+
+    }
+
+    .check-row input {
+
+      accent-color: var(--accent);
+
+      width: 17px;
+
+      height: 17px;
+
+    }
+
+    .progress-grid {
+
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 16px;
+
+    }
+
+    .weight-input {
+
+      display: flex;
+
+      gap: 10px;
+
+      margin-top: 14px;
+
+    }
+
+    .input {
+
+      width: 100%;
+
+      background: #0c0e12;
+
+      color: white;
+
+      border: 1px solid var(--border);
+
+      border-radius: 9px;
+
+      padding: 12px;
+
+      outline: none;
+
+    }
+
+    .input:focus {
+
+      border-color: var(--accent);
+
+    }
+
+    .weight-history {
+
+      margin-top: 15px;
+
+    }
+
+    .weight-row {
+
+      display: flex;
+
+      justify-content: space-between;
+
+      border-bottom: 1px solid var(--border);
+
+      padding: 11px 0;
+
+    }
+
+    .goal {
+
+      border-left: 4px solid var(--accent);
+
+      padding-left: 14px;
+
+      margin-top: 12px;
+
+    }
+
+    .goal-number {
+
+      font-size: 36px;
+
+      font-weight: 900;
+
+      margin: 5px 0;
+
+    }
+
+    .footer {
+
+      border-top: 1px solid var(--border);
+
+      padding: 30px 0;
+
+      color: var(--muted);
+
+      text-align: center;
+
+      font-size: 13px;
+
+    }
+
+    .empty {
+
+      padding: 35px;
+
+      text-align: center;
+
+      color: var(--muted);
+
+    }
+
+    @media (max-width: 800px) {
+
+      .stats {
+
+        grid-template-columns: repeat(2, 1fr);
+
+      }
+
+      .workout-days {
+
+        grid-template-columns: repeat(3, 1fr);
+
+      }
+
+      .progress-grid {
+
+        grid-template-columns: 1fr;
+
+      }
+
+    }
+
+    @media (max-width: 500px) {
+
+      .header-inner {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+      }
+
+      .nav {
+
+        width: 100%;
+
+      }
+
+      .nav button {
+
+        flex: 1;
+
+      }
+
+      .hero {
+
+        padding-top: 35px;
+
+      }
+
+      .stats {
+
+        grid-template-columns: 1fr 1fr;
+
+      }
+
+      .sets {
+
+        grid-template-columns: repeat(2, 1fr);
+
+      }
+
+      .workout-days {
+
+        grid-template-columns: repeat(2, 1fr);
+
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <header class="header">
+
+    <div class="header-inner">
+
+      <div class="logo">Fit<span>Plan</span></div>
+
+      <nav class="nav">
+
+        <button class="active" onclick="showSection('home', this)">Dashboard</button>
+
+        <button onclick="showSection('workouts', this)">Workouts</button>
+
+        <button onclick="showSection('progress', this)">Progress</button>
+
+      </nav>
+
+    </div>
+
+  </header>
+
+  <main>
+
+    <!-- HOME -->
+
+    <section id="home" class="section active">
+
+      <div class="container">
+
+        <div class="hero">
+
+          <h1>Train hard.<br><span>Track everything.</span></h1>
+
+          <p>
+
+            FitPlan is your simple workout tracker for building consistency,
+
+            tracking your lifts, and staying focused on your goals.
+
+          </p>
+
+        </div>
+
+        <div class="stats">
+
+          <div class="stat">
+
+            <div class="stat-label">Workouts</div>
+
+            <div class="stat-value" id="workoutCount">0</div>
+
+          </div>
+
+          <div class="stat">
+
+            <div class="stat-label">Current weight</div>
+
+            <div class="stat-value" id="currentWeight">--</div>
+
+          </div>
+
+          <div class="stat">
+
+            <div class="stat-label">Goal weight</div>
+
+            <div class="stat-value">150</div>
+
+          </div>
+
+          <div class="stat">
+
+            <div class="stat-label">Progress</div>
+
+            <div class="stat-value" id="progressPercent">0%</div>
+
+          </div>
+
+        </div>
+
+        <div class="card">
+
+          <h3>Today's focus</h3>
+
+          <p class="muted" id="todayFocus">
+
+            Select a workout to get started.
+
+          </p>
+
+          <br>
+
+          <button class="button" onclick="showSection('workouts')">
+
+            Start workout
+
+          </button>
+
+        </div>
+
+        <div class="card">
+
+          <h3>How FitPlan works</h3>
+
+          <p class="muted">
+
+            Choose your workout, record your sets and weights, then mark the
+
+            workout complete. Your progress stays saved on this device.
+
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- WORKOUTS -->
+
+    <section id="workouts" class="section">
+
+      <div class="container">
+
+        <h2 class="section-title">Your workouts</h2>
+
+        <div class="workout-days">
+
+          <button class="day-button active" onclick="selectDay(0, this)">
+
+            <strong>Day 1</strong>
+
+            Push
+
+          </button>
+
+          <button class="day-button" onclick="selectDay(1, this)">
+
+            <strong>Day 2</strong>
+
+            Pull
+
+          </button>
+
+          <button class="day-button" onclick="selectDay(2, this)">
+
+            <strong>Day 3</strong>
+
+            Legs
+
+          </button>
+
+          <button class="day-button" onclick="selectDay(3, this)">
+
+            <strong>Day 4</strong>
+
+            Upper
+
+          </button>
+
+          <button class="day-button" onclick="selectDay(4, this)">
+
+            <strong>Day 5</strong>
+
+            Arms + Abs
+
+          </button>
+
+        </div>
+
+        <div id="workoutContent"></div>
+
+      </div>
+
+    </section>
+
+    <!-- PROGRESS -->
+
+    <section id="progress" class="section">
+
+      <div class="container">
+
+        <h2 class="section-title">Progress</h2>
+
+        <div class="progress-grid">
+
+          <div class="card">
+
+            <h3>Weight tracking</h3>
+
+            <p class="muted">
+
+              Add your current body weight to keep track of your progress.
+
+            </p>
+
+            <div class="weight-input">
+
+              <input
+
+                id="weightInput"
+
+                class="input"
+
+                type="number"
+
+                step="0.1"
+
+                placeholder="Weight in lb"
+
+              >
+
+              <button class="button" onclick="addWeight()">
+
+                Add
+
+              </button>
+
+            </div>
+
+            <div id="weightHistory" class="weight-history"></div>
+
+          </div>
+
+          <div class="card">
+
+            <h3>Current goal</h3>
+
+            <div class="goal">
+
+              <div class="muted">Target body weight</div>
+
+              <div class="goal-number">150 lb</div>
+
+              <div class="muted">
+
+                Keep training consistently and track your progress.
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="card">
+
+          <h3>Workout history</h3>
+
+          <div id="history"></div>
+
+        </div>
+
+        <div class="card">
+
+          <h3>Reset data</h3>
+
+          <p class="muted">
+
+            This clears your workout and weight data from this browser.
+
+          </p>
+
+          <br>
+
+          <button class="button danger" onclick="resetData()">
+
+            Reset everything
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer class="footer">
+
+    <div class="container">
+
+      FitPlan • Train. Track. Improve.
+
+    </div>
+
+  </footer>
+
+  <script>
+
+    const workouts = [
+
+      {
+
+        name: "Push",
+
+        description: "Chest, shoulders and triceps",
+
+        exercises: [
+
+          ["Bench Press", "3 sets × 6–10 reps"],
+
+          ["Incline Dumbbell Press", "3 sets × 8–12 reps"],
+
+          ["Shoulder Press", "3 sets × 8–12 reps"],
+
+          ["Lateral Raises", "3 sets × 10–15 reps"],
+
+          ["Triceps Pushdowns", "3 sets × 10–15 reps"]
+
+        ]
+
+      },
+
+      {
+
+        name: "Pull",
+
+        description: "Back and biceps",
+
+        exercises: [
+
+          ["Lat Pulldown", "3 sets × 8–12 reps"],
+
+          ["Seated Cable Row", "3 sets × 8–12 reps"],
+
+          ["Dumbbell Row", "3 sets × 8–12 reps"],
+
+          ["Face Pulls", "3 sets × 12–15 reps"],
+
+          ["Dumbbell Curls", "3 sets × 10–12 reps"]
+
+        ]
+
+      },
+
+      {
+
+        name: "Legs",
+
+        description: "Quads, hamstrings and calves",
+
+        exercises: [
+
+          ["Squat", "3 sets × 6–10 reps"],
+
+          ["Romanian Deadlift", "3 sets × 8–12 reps"],
+
+          ["Leg Press", "3 sets × 10–12 reps"],
+
+          ["Leg Curl", "3 sets × 10–15 reps"],
+
+          ["Calf Raises", "3 sets × 12–15 reps"]
+
+        ]
+
+      },
+
+      {
+
+        name: "Upper",
+
+        description: "Full upper body",
+
+        exercises: [
+
+          ["Bench Press", "3 sets × 6–10 reps"],
+
+          ["Pull-Ups or Lat Pulldown", "3 sets × 6–12 reps"],
+
+          ["Incline Dumbbell Press", "3 sets × 8–12 reps"],
+
+          ["Cable Row", "3 sets × 8–12 reps"],
+
+          ["Lateral Raises", "3 sets × 12–15 reps"],
+
+          ["Biceps Curls", "2 sets × 10–15 reps"],
+
+          ["Triceps Extensions", "2 sets × 10–15 reps"]
+
+        ]
+
+      },
+
+      {
+
+        name: "Arms + Abs",
+
+        description: "Arms and core",
+
+        exercises: [
+
+          ["EZ-Bar Curl", "3 sets × 8–12 reps"],
+
+          ["Hammer Curl", "3 sets × 10–12 reps"],
+
+          ["Triceps Pushdown", "3 sets × 10–15 reps"],
+
+          ["Overhead Triceps Extension", "3 sets × 10–15 reps"],
+
+          ["Cable Crunch", "3 sets × 10–15 reps"],
+
+          ["Hanging Knee Raise", "3 sets × 10–15 reps"],
+
+          ["Plank", "3 sets × 30–60 sec"]
+
+        ]
+
+      }
+
+    ];
+
+    let currentDay = 0;
+
+    function getData() {
+
+      return JSON.parse(localStorage.getItem("fitplanData")) || {
+
+        workoutsCompleted: 0,
+
+        weights: [],
+
+        history: []
+
+      };
+
+    }
+
+    function saveData(data) {
+
+      localStorage.setItem("fitplanData", JSON.stringify(data));
+
+    }
+
+    function showSection(id, button) {
+
+      document.querySelectorAll(".section").forEach(section => {
+
+        section.classList.remove("active");
+
+      });
+
+      document.getElementById(id).classList.add("active");
+
+      if (button) {
+
+        document.querySelectorAll(".nav button").forEach(btn => {
+
+          btn.classList.remove("active");
+
+        });
+
+        button.classList.add("active");
+
+      }
+
+      window.scrollTo({
+
+        top: 0,
+
+        behavior: "smooth"
+
+      });
+
+      updateDashboard();
+
+      renderProgress();
+
+    }
+
+    function selectDay(day, button) {
+
+      currentDay = day;
+
+      document.querySelectorAll(".day-button").forEach(btn => {
+
+        btn.classList.remove("active");
+
+      });
+
+      button.classList.add("active");
+
+      renderWorkout();
+
+    }
+
+    function renderWorkout() {
+
+      const workout = workouts[currentDay];
+
+      let html = `
+
+        <div class="card">
+
+          <h2>${workout.name}</h2>
+
+          <p class="muted">${workout.description}</p>
+
+          <div id="exerciseList">
+
+      `;
+
+      workout.exercises.forEach((exercise, index) => {
+
+        html += `
+
+          <div class="exercise">
+
+            <div class="exercise-top">
+
+              <div>
+
+                <div class="exercise-name">${exercise[0]}</div>
+
+                <div class="exercise-info">${exercise[1]}</div>
+
+              </div>
+
+            </div>
+
+            <div class="sets">
+
+              ${[1,2,3,4].map(set => `
+
+                <div class="set-box">
+
+                  <label>Set ${set}</label>
+
+                  <input
+
+                    type="number"
+
+                    min="0"
+
+                    placeholder="Reps"
+
+                    data-exercise="${index}"
+
+                    data-set="${set}"
+
+                    class="rep-input"
+
+                  >
+
+                </div>
+
+              `).join("")}
+
+            </div>
+
+            <label class="check-row">
+
+              <input
+
+                type="checkbox"
+
+                class="exercise-check"
+
+              >
+
+              Exercise completed
+
+            </label>
+
+          </div>
+
+        `;
+
+      });
+
+      html += `
+
+          </div>
+
+          <br>
+
+          <button class="button" onclick="completeWorkout()">
+
+            Complete workout
+
+          </button>
+
+          <button
+
+            class="button secondary"
+
+            onclick="clearWorkoutInputs()"
+
+            style="margin-left:8px;"
+
+          >
+
+            Clear
+
+          </button>
+
+        </div>
+
+      `;
+
+      document.getElementById("workoutContent").innerHTML = html;
+
+    }
+
+    function completeWorkout() {
+
+      const data = getData();
+
+      data.workoutsCompleted++;
+
+      data.history.unshift({
+
+        date: new Date().toLocaleDateString(),
+
+        workout: workouts[currentDay].name
+
+      });
+
+      data.history = data.history.slice(0, 30);
+
+      saveData(data);
+
+      updateDashboard();
+
+      renderProgress();
+
+      alert(
+
+        "Workout complete! Great job. Your workout has been saved."
+
+      );
+
+    }
+
+    function clearWorkoutInputs() {
+
+      document.querySelectorAll(".rep-input").forEach(input => {
+
+        input.value = "";
+
+      });
+
+      document.querySelectorAll(".exercise-check").forEach(input => {
+
+        input.checked = false;
+
+      });
+
+    }
+
+    function addWeight() {
+
+      const input = document.getElementById("weightInput");
+
+      const weight = parseFloat(input.value);
+
+      if (!weight || weight <= 0) {
+
+        alert("Enter a valid weight.");
+
+        return;
+
+      }
+
+      const data = getData();
+
+      data.weights.push({
+
+        weight: weight,
+
+        date: new Date().toLocaleDateString()
+
+      });
+
+      saveData(data);
+
+      input.value = "";
+
+      updateDashboard();
+
+      renderProgress();
+
+    }
+
+    function updateDashboard() {
+
+      const data = getData();
+
+      document.getElementById("workoutCount").textContent =
+
+        data.workoutsCompleted;
+
+      if (data.weights.length > 0) {
+
+        const latest =
+
+          data.weights[data.weights.length - 1].weight;
+
+        document.getElementById("currentWeight").textContent =
+
+          latest + " lb";
+
+        const progress =
+
+          Math.max(
+
+            0,
+
+            Math.min(
+
+              100,
+
+              Math.round((latest / 150) * 100)
+
+            )
+
+          );
+
+        document.getElementById("progressPercent").textContent =
+
+          progress + "%";
+
+      } else {
+
+        document.getElementById("currentWeight").textContent =
+
+          "--";
+
+        document.getElementById("progressPercent").textContent =
+
+          "0%";
+
+      }
+
+      const today = new Date().getDay();
+
+      const mapping = {
+
+        1: "Push",
+
+        2: "Pull",
+
+        3: "Legs",
+
+        4: "Upper",
+
+        5: "Arms + Abs",
+
+        6: "Rest",
+
+        0: "Rest"
+
+      };
+
+      document.getElementById("todayFocus").textContent =
+
+        mapping[today] === "Rest"
+
+          ? "Rest day — recover, eat well and get ready for your next session."
+
+          : "Today's focus: " + mapping[today];
+
+    }
+
+    function renderProgress() {
+
+      const data = getData();
+
+      const weightHistory =
+
+        document.getElementById("weightHistory");
+
+      if (data.weights.length === 0) {
+
+        weightHistory.innerHTML = `
+
+          <div class="empty">
+
+            No weight entries yet.
+
+          </div>
+
+        `;
+
+      } else {
+
+        weightHistory.innerHTML =
+
+          data.weights
+
+            .slice()
+
+            .reverse()
+
+            .map(item => `
+
+              <div class="weight-row">
+
+                <span>${item.date}</span>
+
+                <strong>${item.weight} lb</strong>
+
+              </div>
+
+            `)
+
+            .join("");
+
+      }
+
+      const history =
+
+        document.getElementById("history");
+
+      if (data.history.length === 0) {
+
+        history.innerHTML = `
+
+          <div class="empty">
+
+            Complete your first workout to see it here.
+
+          </div>
+
+        `;
+
+      } else {
+
+        history.innerHTML =
+
+          data.history
+
+            .map(item => `
+
+              <div class="weight-row">
+
+                <span>${item.date}</span>
+
+                <strong>${item.workout}</strong>
+
+              </div>
+
+            `)
+
+            .join("");
+
+      }
+
+    }
+
+    function resetData() {
+
+      const confirmReset =
+
+        confirm(
+
+          "Are you sure you want to delete all FitPlan progress?"
+
+        );
+
+      if (!confirmReset) return;
+
+      localStorage.removeItem("fitplanData");
+
+      updateDashboard();
+
+      renderProgress();
+
+      alert("Your FitPlan data has been reset.");
+
+    }
+
+    // Start the app
+
+    renderWorkout();
+
+    updateDashboard();
+
+    renderProgress();
+
+  </script>
+
+</body>
+
+</html>
 
 
 
